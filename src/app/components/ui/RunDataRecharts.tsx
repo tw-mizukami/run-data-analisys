@@ -1,6 +1,7 @@
 "use client";
 
-import { runDataChartType } from "@/app/types/runDataChartType ";
+import { runDataChartType } from "@/app/types/runDataChartType";
+import { useEffect, useState } from "react";
 import {
   CartesianGrid,
   Legend,
@@ -37,6 +38,19 @@ const divStyle = {
 function RunDataChart({ data, visibleLines }: RechartsGraphProps) {
   // カンマ区切りのフォーマット関数
   const formatNumber = (value: number) => value.toLocaleString();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return <div>Loading...</div>; // サーバー側では表示させない
+  }
+  
+  if (!data || data.length === 0) {
+    return <div>No data available</div>;
+  }
   
   return (
     <div>

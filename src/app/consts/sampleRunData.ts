@@ -1,4 +1,4 @@
-import { runDataChartType } from "../types/runDataChartType ";
+import { runDataChartType } from "../types/runDataChartType";
 
 export const sampleRunData: runDataChartType[] = [
   {
