@@ -1,11 +1,18 @@
 import React from 'react';
 import { sampleRunData } from '../consts/sampleRunData';
 import RunDataChart from '../components/ui/RunDataRecharts';
+import Button from '@/components/Button';
+import { GraphDataSelector } from '../components/ui/GraphDataSelector';
 
 const DataChart = () => {
-    return (
-        <>
-          <RunDataChart data={sampleRunData} visibleLines={{
+    const sendData = async () => {
+    };
+    
+  return (
+    <div className="flex flex-col space-x-4 mt-4 mb-4">
+     
+    <GraphDataSelector/>
+      <RunDataChart data={sampleRunData} visibleLines={{
             speed: true,
             noInspRate: true,
             dataA: true,
@@ -14,9 +21,9 @@ const DataChart = () => {
             dataD: true,
             dataE: true,
           }}>
-          </RunDataChart>
-        </>
-    );
+      </RunDataChart>
+    </div>
+  );
 };
 
 export default DataChart;

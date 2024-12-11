@@ -54,7 +54,9 @@ function RunDataChart({ data, visibleLines }: RechartsGraphProps) {
   
   return (
     <div>
-      <h2>運転速度/未検査グラフ</h2>
+      <h2 className="text-2xl font-bold text-white text-center bg-gradient-to-r from-blue-800 to-blue-600 py-4 px-6 rounded-lg shadow-lg">
+        運転速度 / 未検査グラフ
+      </h2> 
       <LineChart
         width={800}
         height={400}
@@ -66,18 +68,14 @@ function RunDataChart({ data, visibleLines }: RechartsGraphProps) {
           bottom: 20,
         }}
       >
-        <CartesianGrid strokeDasharray="5 1" />
+        <CartesianGrid strokeDasharray="3 1" />
         <XAxis
           dataKey="date"
-          interval={5}
-          angle={-20}
+          interval={1}
+          angle={0}
           dx={-10}
           dy={20}
-          tick={{
-            fontSize: 10,
-            fill: "#000",
-            cursor: "pointer",
-          }}
+          tick={{ fill: 'white', fontSize: 14 }}
         />
         <YAxis
           yAxisId="left"
