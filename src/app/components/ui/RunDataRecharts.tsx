@@ -1,5 +1,9 @@
+// グラフ
+
 "use client";
 
+import { useVisibleLines } from "@/app/[lang]/data-chart/context/dataChartContext";
+import { useI18n } from "@/app/context/i18nContext";
 import { runDataChartType } from "@/app/types/runDataChartType";
 import { useEffect, useState } from "react";
 import {
@@ -14,15 +18,6 @@ import {
 
 interface RechartsGraphProps {
   data: runDataChartType[];
-  visibleLines: {
-    speed: boolean;
-    noInspRate: boolean;
-    dataA: boolean;
-    dataB: boolean;
-    dataC: boolean;
-    dataD: boolean;
-    dataE: boolean;
-  };
 }
 
 const pStyle = {
@@ -35,17 +30,19 @@ const divStyle = {
   border: "solid 2px blue",
 };
 
-function RunDataChart({ data, visibleLines }: RechartsGraphProps) {
+function RunDataChart({ data }: RechartsGraphProps) {
   // カンマ区切りのフォーマット関数
   const formatNumber = (value: number) => value.toLocaleString();
   const [isClient, setIsClient] = useState(false);
+  const { states: visibleLines } = useVisibleLines();
+  const { dictionary } = useI18n();
 
   useEffect(() => {
     setIsClient(true);
   }, []);
-
+  
   if (!isClient) {
-    return <div>Loading...</div>; // サーバー側では表示させない
+    return <div>Loading...</div>;
   }
   
   if (!data || data.length === 0) {
@@ -55,7 +52,7 @@ function RunDataChart({ data, visibleLines }: RechartsGraphProps) {
   return (
     <div>
       <h2 className="text-2xl font-bold text-white text-center bg-gradient-to-r from-blue-800 to-blue-600 py-4 px-6 rounded-lg shadow-lg">
-        運転速度 / 未検査グラフ
+        {dictionary.grahTitle}
       </h2> 
       <LineChart
         width={800}
@@ -96,23 +93,23 @@ function RunDataChart({ data, visibleLines }: RechartsGraphProps) {
           tickCount={10}
         /> */}
 
-        {visibleLines.speed && (
+        {visibleLines.Data1 && (
           <Line
             yAxisId="left"
             type="monotone"
-            dataKey="speed"
-            name="運転速度"
+            dataKey="Data1"
+            name={dictionary.data1}
             stroke="#3ba2f6"
             unit="pcs/min"
           />
         )}
 
-        {visibleLines.noInspRate && (
+        {visibleLines.Data2 && (
           <Line
             yAxisId="right"
             type="monotone"
-            dataKey="noInspRate"
-            name="未検査率"
+            dataKey="Data2"
+            name={dictionary.data2}
             stroke="#ff0091"
             strokeWidth={2}
             unit="%"
@@ -121,12 +118,12 @@ function RunDataChart({ data, visibleLines }: RechartsGraphProps) {
             }}
           />
         )}
-        {visibleLines.dataA && (
+        {visibleLines.Data3 && (
           <Line
               yAxisId="right"
               type="monotone"
-              dataKey="dataA"
-              name="dataA"
+              dataKey="Data3"
+              name={dictionary.data3}
               stroke="#00ff7f"
               strokeWidth={2}
               unit="%"
@@ -135,12 +132,12 @@ function RunDataChart({ data, visibleLines }: RechartsGraphProps) {
               }}
           />
         )}
-        {visibleLines.dataB && (
+        {visibleLines.Data4 && (
           <Line
               yAxisId="right"
               type="monotone"
-              dataKey="dataB"
-              name="dataB"
+              dataKey="Data4"
+              name={dictionary.data4}
               stroke="#7f00ff"
               strokeWidth={2}
               unit="%"
@@ -149,12 +146,12 @@ function RunDataChart({ data, visibleLines }: RechartsGraphProps) {
               }}
           />
         )}
-        {visibleLines.dataC && (
+        {visibleLines.Data5 && (
           <Line
               yAxisId="right"
               type="monotone"
-              dataKey="dataC"
-              name="dataC"
+              dataKey="Data5"
+              name={dictionary.data5}
               stroke="#ff7f00"
               strokeWidth={2}
               unit="%"
@@ -163,12 +160,12 @@ function RunDataChart({ data, visibleLines }: RechartsGraphProps) {
               }}
           />
         )}
-        {visibleLines.dataD && (
+        {visibleLines.Data6 && (
           <Line
               yAxisId="right"
               type="monotone"
-              dataKey="dataD"
-              name="dataD"
+              dataKey="Data6"
+              name={dictionary.data6}
               stroke="#66ff00"
               strokeWidth={2}
               unit="%"
@@ -177,12 +174,12 @@ function RunDataChart({ data, visibleLines }: RechartsGraphProps) {
               }}
           />
         )}
-        {visibleLines.dataE && (
+        {visibleLines.Data7 && (
           <Line
               yAxisId="right"
               type="monotone"
-              dataKey="dataE"
-              name="dataE"
+              dataKey="Data7"
+              name={dictionary.data7}
               stroke="#66ffff"
               strokeWidth={2}
               unit="%"

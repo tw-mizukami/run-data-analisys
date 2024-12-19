@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+
 export async function generateStaticParams() {
   return [
     { lang: "en" },
@@ -5,12 +7,8 @@ export async function generateStaticParams() {
   ];
 }
 
-export default function Page({ params }: { params: { lang: string } }) {
-  const { lang } = params;
+export default async function Page({ params }: { params: { lang: string } }) {
+  const { lang } = await params;
 
-  return (
-    <main>
-      <h1>{lang === "ja" ? "日本語ページ" : "English Page"}</h1>
-    </main>
-  );
+    redirect(`/${lang}/data-chart`);
 }

@@ -28,7 +28,7 @@ const ConvertCsvToChartData = (file: File): Promise<runDataChartType[]> => {
               const speed = rowData[Object.keys(rowData)[37]] ? parseFloat(rowData[Object.keys(rowData)[37]]) : null;
               const noInspRate = rowData[Object.keys(rowData)[38]] ? parseFloat(rowData[Object.keys(rowData)[38]]) : null;
 
-              return date ? { date, speed, noInspRate } as runDataChartType : null;
+              return date ? { date, Data1: speed, Data2: noInspRate } as runDataChartType : null;
             }).filter((item) => item !== null) as runDataChartType[];
 
             resolve(data);

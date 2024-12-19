@@ -1,10 +1,10 @@
 export type runDataChartType = {
   date: string | null;
-  speed: number | null;
-  noInspRate: number | null;
-  dataA: number | null;
-  dataB: number | null;
-  dataC: number | null;
-  dataD: number | null;
-  dataE: number | null;
+  Data1: number | null;
+  Data2: number | null;
+  Data3: number | null;
+  Data4: number | null;
+  Data5: number | null;
+  Data6: number | null;
+  Data7: number | null;
 };

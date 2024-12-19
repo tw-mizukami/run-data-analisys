@@ -9,6 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@formatjs/intl-localematcher": "^0.5.9",
+    "@types/negotiator": "^0.6.3",
+    "negotiator": "^1.0.0",
     "next": "15.0.3",
     "next-intl": "^3.25.1",
     "papaparse": "^5.4.1",

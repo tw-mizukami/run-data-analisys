@@ -1,7 +1,9 @@
+// グラフのデータを選択するボタン（C#アプリから取得したデータ、ファイルから読み込んだデータ）
+
 'use client';
 
 import React, { useState } from "react";
-import Button from "@/components/Button";
+import Button from "@/app/components/ui/Button";
 import { OpenFileModal } from "./OpenFileModal";
 
 export const GraphDataSelector = () => {

@@ -1,19 +1,18 @@
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+// import {usePathname} from "next/navigation"
 
 export default function RootLayout({
   children,
-  params,
 }: {
   children: React.ReactNode;
-  params: { lang: string };
 }) {
+  
+  // const pathname = usePathname();
+
   return (
-    <html lang={params.lang}>
-      <body className={`flex ${inter.className}`}>
-        {children}
-      </body>
-    </html>
+    <>
+      <div className="text-white">
+      </div>
+      {children}
+    </>
   );
 }

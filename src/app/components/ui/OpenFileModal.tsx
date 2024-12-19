@@ -1,3 +1,5 @@
+// ファイルを読込するモーダル
+
 import React, { useState } from "react";
 import CsvFileUploader from "./CsvFileUploader";
 import ConvertCsvToChartData from "../ConvertCsvToChartData";
@@ -13,7 +15,7 @@ export const OpenFileModal = ({ onClose }: { onClose: () => void }) => {
             const runData = await ConvertCsvToChartData(file);
             setData(runData);
             setError(null); // 成功時はエラーをクリア
-            onClose(); // モーダルを閉じる
+            onClose();      // モーダルを閉じる
         } catch (err: unknown) {
             onClose(); // モーダルを閉じた後にアラートを表示
             setTimeout(() => {

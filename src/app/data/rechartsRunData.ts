@@ -7,12 +7,12 @@ import { runDataChartType } from "../types/runDataChartType";
 export const runData: runDataChartType[] = [
   {
     date: null,
-    speed: null,
-    noInspRate: null,
-    dataA: null,
-    dataB: null,
-    dataC: null,
-    dataD: null,
-    dataE: null,
+    Data1: null,
+    Data2: null,
+    Data3: null,
+    Data4: null,
+    Data5: null,
+    Data6: null,
+    Data7: null,
   },
 ];

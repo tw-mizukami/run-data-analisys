@@ -1,14 +1,32 @@
-// 言語切替用でこっちを使いたいが、リダイレクトすると404エラーが出る。
+import React from 'react';
+import { sampleRunData } from '@/app/consts/sampleRunData';
+import { Locale } from '@/i18n-config';
+import GraphRunData from './components/ui/GraphRunData';
+import LanguageSwitchButton from '@/app/components/ui/LanguageSwitchButton';
+import { I18nProvider } from '@/app/context/i18nContext';
 
-import { getDictionary } from '../dictionaries/dictionaries'
+interface Props {
+  params: Promise<{ lang: Locale }>;
+}
 
-export default async function DataChartPage({ params }: { params: { lang: string } }) {
-  const dict = await getDictionary(params.lang as 'en' | 'ja');
+const DataChartPage = async ({ params }: Props) => {
+  const { lang } = await params;
 
   return (
-    <div>
-      <h1>{dict.home.title}</h1>
-      <p>{dict.home.description}</p>
-    </div>
+    <>
+      <I18nProvider initialLang={lang as Locale}>
+        <div className="grid grid-rows-[1fr_auto] h-screen">
+          <div className="w-full max-w-4xl mx-auto">
+            <GraphRunData params={params} data={sampleRunData} />
+          </div>
+          <div className="fixed bottom-4 right-4">
+            <LanguageSwitchButton />
+          </div>
+        </div>
+        
+      </I18nProvider>
+    </>
   );
-}
+};
+
+export default DataChartPage;
