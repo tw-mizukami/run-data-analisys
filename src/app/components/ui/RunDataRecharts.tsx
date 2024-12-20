@@ -2,7 +2,7 @@
 
 "use client";
 
-import { useVisibleLines } from "@/app/[lang]/data-chart/context/dataChartContext";
+import { useVisibleLines } from "@/app/[lang]/data-chart/context/visibleLinesContext";
 import { useI18n } from "@/app/context/i18nContext";
 import { runDataChartType } from "@/app/types/runDataChartType";
 import { useEffect, useState } from "react";
@@ -76,7 +76,7 @@ function RunDataChart({ data }: RechartsGraphProps) {
         />
         <YAxis
           yAxisId="left"
-          domain={["auto", "auto"]}
+          domain={["auto", "auto"]}         // Y軸最小値、最大値
           tickCount={10}
           tickFormatter={formatNumber}
         />

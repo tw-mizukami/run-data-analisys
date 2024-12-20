@@ -1,0 +1,21 @@
+/* スライダー全体の背景色 */
+.noUi-target {
+  background: #f0f0f0 !important; /* 背景色を上書き */
+  height: 10px !important; /* 高さを変更 */
+  border-radius: 5px !important; /* 角を丸くする */
+}
+
+/* スライダーの接続部分 */
+.noUi-connect {
+  background: #db3434 !important; /* 接続部分の色 */
+  height: 10px !important; /* 高さをスライダー全体に合わせる */
+}
+
+/* スライダーのつまみ */
+.noUi-handle {
+  background: #ffffff !important; /* つまみの色 */
+  border: 3px solid #3498db !important; /* つまみの枠線色 */
+  width: 20px !important; /* つまみの横幅 */
+  height: 20px !important; /* つまみの高さ */
+  border-radius: 50% !important; /* つまみを丸くする */
+}

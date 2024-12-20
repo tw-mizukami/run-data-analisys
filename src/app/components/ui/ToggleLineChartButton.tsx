@@ -1,6 +1,6 @@
 'use client';
 
-import { useVisibleLines, VisibleLinesState } from "@/app/[lang]/data-chart/context/dataChartContext";
+import { useVisibleLines, VisibleLinesState } from "@/app/[lang]/data-chart/context/visibleLinesContext";
 import { useI18n } from "@/app/context/i18nContext";
 
 const ToggleLineChartButton = () => {
@@ -14,7 +14,7 @@ const ToggleLineChartButton = () => {
   return (
     <div className="relative border border-blue-500 rounded-lg p-4 mt-6">
       <div className="absolute -top-3 left-4 bg-black px-2 text-white-500 font-semibold">
-        表示データ
+        {dictionary.SelectData}
       </div>
       <div className="flex flex-col space-y-4">
         {Object.keys(states).map((key) => (

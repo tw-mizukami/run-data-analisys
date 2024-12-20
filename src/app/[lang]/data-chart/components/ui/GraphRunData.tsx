@@ -1,13 +1,14 @@
 "use client"
 
 import { Locale } from '@/i18n-config';
-import { VisibleLinesProvider } from "../../context/dataChartContext";
+import { VisibleLinesProvider } from "../../context/visibleLinesContext";
 import { runDataChartType } from "@/app/types/runDataChartType";
 import { GraphDataSelector } from "@/app/components/ui/GraphDataSelector";
 import RunDataChart from "@/app/components/ui/RunDataRecharts";
 import ToggleLineChartButton from "@/app/components/ui/ToggleLineChartButton";
 import { getDictionary } from '../../get-dictionary';
 import { useEffect, useState } from 'react';
+import YAxisScaleBar from '@/app/components/ui/YAxisScaleBar';
 
 interface GraphRunDataProps {
   params: Promise<{ lang: Locale }>;
@@ -51,10 +52,23 @@ function GraphRunData({ params, data }: GraphRunDataProps) {
           />
 
           <ToggleLineChartButton />
+
+          <div className="flex flex-col justify-between space-y10">
+            <YAxisScaleBar />
+            <YAxisScaleBar />
+            <YAxisScaleBar />
+            <YAxisScaleBar />
+            <YAxisScaleBar />
+            <YAxisScaleBar />
+            <YAxisScaleBar />
+          </div>
+          {/* Auto Scale Buttonも欲しい */}
+
         </div>
       </div>
-      </VisibleLinesProvider>
+    </VisibleLinesProvider>
 
   );
 }
+
 export default GraphRunData;

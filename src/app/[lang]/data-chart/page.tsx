@@ -16,7 +16,7 @@ const DataChartPage = async ({ params }: Props) => {
     <>
       <I18nProvider initialLang={lang as Locale}>
         <div className="grid grid-rows-[1fr_auto] h-screen">
-          <div className="w-full max-w-4xl mx-auto">
+          <div>
             <GraphRunData params={params} data={sampleRunData} />
           </div>
           <div className="fixed bottom-4 right-4">

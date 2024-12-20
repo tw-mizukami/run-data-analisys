@@ -34,6 +34,7 @@ export const VisibleLinesProvider = ({
   children: React.ReactNode;
   lang: string;
 }) => {
+  
   const [states, setStatesInternal] = useState<VisibleLinesState>(initialState);
 
   useEffect(() => {
