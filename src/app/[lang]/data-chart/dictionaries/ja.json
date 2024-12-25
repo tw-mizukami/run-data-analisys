@@ -1,6 +1,7 @@
 {
   "grahTitle": "運転速度 / 未検査グラフ",
   "SelectData": "表示データ選択",
+  "YAxisScale" : "Y軸スケール",
   "Data1": "データ1",
   "Data2": "データ2",
   "Data3": "データ3",

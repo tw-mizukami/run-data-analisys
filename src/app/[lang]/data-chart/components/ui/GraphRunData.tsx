@@ -9,6 +9,7 @@ import ToggleLineChartButton from "@/app/components/ui/ToggleLineChartButton";
 import { getDictionary } from '../../get-dictionary';
 import { useEffect, useState } from 'react';
 import YAxisScaleBar from '@/app/components/ui/YAxisScaleBar';
+import { YAxisScaleProvider } from '../../context/yAxisScaleContext';
 
 interface GraphRunDataProps {
   params: Promise<{ lang: Locale }>;
@@ -41,33 +42,27 @@ function GraphRunData({ params, data }: GraphRunDataProps) {
 
   return (
     
-    <VisibleLinesProvider lang={lang}>
-      <div className="flex flex-col space-x-4 mt-4 mb-4 ml-4">
+    <YAxisScaleProvider lang={lang}>
+      <VisibleLinesProvider lang={lang}>
+        <div className="flex flex-row space-x-4 mt-4 mb-4 ml-4">
       
-        <GraphDataSelector />
-
-        <div className= "flex flex-row space-x-4 mt-4 mb-4">
-          <RunDataChart
-            data={data}
-          />
-
-          <ToggleLineChartButton />
-
-          <div className="flex flex-col justify-between space-y10">
-            <YAxisScaleBar />
-            <YAxisScaleBar />
-            <YAxisScaleBar />
-            <YAxisScaleBar />
-            <YAxisScaleBar />
-            <YAxisScaleBar />
-            <YAxisScaleBar />
+          <div className= "flex flex-col space-x-4 mt-4 mb-4">
+            <RunDataChart data={data} />
+            
+            <GraphDataSelector />
           </div>
-          {/* Auto Scale Buttonも欲しい */}
+         
+          <div className="flex flex-row space-x-4 mt-12">
+            <div>
+              <ToggleLineChartButton />
+            </div>
+            <YAxisScaleBar />
+            {/* Auto Scale Buttonも欲しい */}
+          </div>
 
         </div>
-      </div>
-    </VisibleLinesProvider>
-
+      </VisibleLinesProvider>
+    </YAxisScaleProvider>
   );
 }
 

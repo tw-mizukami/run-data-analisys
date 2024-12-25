@@ -1,0 +1,27 @@
+.custom-textfield .MuiInputBase-input {
+  color: white;
+}
+
+.custom-textfield .MuiInputLabel-root {
+  color: white;
+}
+
+.custom-textfield .MuiOutlinedInput-notchedOutline {
+  border-color: white;
+}
+
+.custom-textfield:hover .MuiOutlinedInput-notchedOutline {
+  border-color: gray;
+}
+
+.custom-textfield.Mui-focused .MuiOutlinedInput-notchedOutline {
+  border-color: white;
+}
+
+.custom-textfield {
+  width: 80px;
+}
+
+.custom-textfield .MuiInputBase-root {
+  height: 30px;
+}

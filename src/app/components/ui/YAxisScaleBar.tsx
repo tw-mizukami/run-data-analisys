@@ -5,12 +5,21 @@ import { useVisibleLines } from "@/app/[lang]/data-chart/context/visibleLinesCon
 import { useYAxisScale, YAxisScale } from "@/app/[lang]/data-chart/context/yAxisScaleContext";
 import Slider from "@mui/material/Slider";
 import "@/app/styles/TextFieldStyles.css";
+import { useEffect } from "react";
 
 const YAxisScaleBar = () => {
   const { states, setStates } = useVisibleLines();
   const { scale, setScales } = useYAxisScale();
   const { dictionary } = useI18n();
 
+    useEffect(() => {
+    console.log("Initial scale state:", scale);
+}, []);
+
+useEffect(() => {
+    console.log("Scale updated:", scale);
+}, [scale]);
+  
   const handleSliderValueChange = (key: keyof YAxisScale, value: [number, number]) => {
     if (Array.isArray(value) && value.length === 2) {
       console.log(`Key: ${key}`);
@@ -21,6 +30,8 @@ const YAxisScaleBar = () => {
     }
   };
 
+
+  
   return (
    <div className="relative border border-blue-500 rounded-lg p-4 mt-6">
       <div className="absolute -top-3 left-4 bg-black px-2 text-white font-semibold">
@@ -30,18 +41,20 @@ const YAxisScaleBar = () => {
         {Object.keys(states).map((key) => (
           <div key={key} className="flex flex-col space-y-2">
             <p className="font-semibold">{`${dictionary[key] || key}`}</p>
+            {scale[key as keyof YAxisScale] && (
             <Slider
-              min={0}
-              max={20000}
+              min={scale[key as keyof YAxisScale].sliderMin}
+              max={scale[key as keyof YAxisScale].sliderMax}
               value={[
                 scale[key as keyof YAxisScale].min,
                 scale[key as keyof YAxisScale].max
               ]}
-              step={scale?.[key as keyof YAxisScale]?.isDecimal ? 0.1 : 1000}
+              step={scale[key as keyof YAxisScale].sliderStep}
               onChange={(event, value) => handleSliderValueChange(key as keyof YAxisScale, value as [number, number])}
               valueLabelDisplay="auto"
               sx={{ width: 200 }}
-            />
+              />
+              )}
           </div>  
         ))}
       </div>

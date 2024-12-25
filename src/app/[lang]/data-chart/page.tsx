@@ -19,7 +19,7 @@ const DataChartPage = async ({ params }: Props) => {
           <div>
             <GraphRunData params={params} data={sampleRunData} />
           </div>
-          <div className="fixed bottom-4 right-4">
+          <div className="fixed top-4 right-4">
             <LanguageSwitchButton />
           </div>
         </div>

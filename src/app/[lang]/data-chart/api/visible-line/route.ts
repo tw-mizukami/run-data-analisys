@@ -1,13 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
+import { VisibleLinesState } from "../../context/visibleLinesContext";
 
-let visibleLinesState = {
+let visibleLinesState : VisibleLinesState = {
   Data1: true,
   Data2: true,
-  Data3: true,
-  Data4: true,
-  Data5: true,
-  Data6: true,
-  Data7: true,
+  Data3: false,
+  Data4: false,
+  Data5: false,
+  Data6: false,
+  Data7: false,
 };
 
 // GET メソッド

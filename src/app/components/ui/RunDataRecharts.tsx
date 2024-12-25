@@ -3,6 +3,7 @@
 "use client";
 
 import { useVisibleLines } from "@/app/[lang]/data-chart/context/visibleLinesContext";
+import { useYAxisScale } from "@/app/[lang]/data-chart/context/yAxisScaleContext";
 import { useI18n } from "@/app/context/i18nContext";
 import { runDataChartType } from "@/app/types/runDataChartType";
 import { useEffect, useState } from "react";
@@ -35,11 +36,18 @@ function RunDataChart({ data }: RechartsGraphProps) {
   const formatNumber = (value: number) => value.toLocaleString();
   const [isClient, setIsClient] = useState(false);
   const { states: visibleLines } = useVisibleLines();
+  const { scale: yAxisScale } = useYAxisScale(); 
+  
   const { dictionary } = useI18n();
 
   useEffect(() => {
     setIsClient(true);
   }, []);
+  
+  useEffect(() => {
+    console.log("Updated yAxisScale:", yAxisScale);
+  }, [yAxisScale]); // yAxisScale に依存
+  
   
   if (!isClient) {
     return <div>Loading...</div>;
@@ -65,7 +73,7 @@ function RunDataChart({ data }: RechartsGraphProps) {
           bottom: 20,
         }}
       >
-        <CartesianGrid strokeDasharray="3 1" />
+      <CartesianGrid strokeDasharray="3 1" />
         <XAxis
           dataKey="date"
           interval={1}
@@ -76,7 +84,11 @@ function RunDataChart({ data }: RechartsGraphProps) {
         />
         <YAxis
           yAxisId="left"
-          domain={["auto", "auto"]}         // Y軸最小値、最大値
+          domain={[
+            yAxisScale.Data1.min !== undefined ? yAxisScale.Data1.min : "auto",
+            yAxisScale.Data1.max !== undefined ? yAxisScale.Data1.max : "auto",
+          ]}
+          allowDataOverflow
           tickCount={10}
           tickFormatter={formatNumber}
         />

@@ -1,6 +1,7 @@
 {
     "grahTitle": "Operation Speed / Uninspected Rate Graph",
     "SelectData": "Select Data to Display",
+    "YAxisScale" : "YAxisScale",
     "Data1": "Data1",
     "Data2": "Data2",
     "Data3": "Data3",
