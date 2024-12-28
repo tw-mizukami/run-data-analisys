@@ -56,7 +56,9 @@ function GraphRunData({ params, data }: GraphRunDataProps) {
             <div>
               <ToggleLineChartButton />
             </div>
-            <YAxisScaleBar />
+            <div>
+              <YAxisScaleBar />
+            </div>
             {/* Auto Scale Buttonも欲しい */}
           </div>
 

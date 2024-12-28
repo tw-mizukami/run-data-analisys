@@ -95,7 +95,10 @@ function RunDataChart({ data }: RechartsGraphProps) {
         <YAxis
           yAxisId="right"
           orientation="right"
-          domain={["auto", "auto"]}
+          domain={[
+            yAxisScale.Data2.min !== undefined ? yAxisScale.Data2.min : "auto",
+            yAxisScale.Data2.max !== undefined ? yAxisScale.Data2.max : "auto",
+          ]}
           tickCount={10}
         />
         {/* <YAxis
