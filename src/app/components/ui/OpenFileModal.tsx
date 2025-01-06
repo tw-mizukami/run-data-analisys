@@ -3,17 +3,18 @@
 import React, { useState } from "react";
 import CsvFileUploader from "./CsvFileUploader";
 import ConvertCsvToChartData from "../ConvertCsvToChartData";
-import { runDataChartType } from "@/app/types/runDataChartType";
+import { useRunDataStore } from "@/app/data/rechartsRunData";
 
 export const OpenFileModal = ({ onClose }: { onClose: () => void }) => {
-    const [data, setData] = useState<runDataChartType[] | null>(null);
     const[error, setError] = useState<string | null>(null); 
-    
+    const { data, setData } = useRunDataStore();
+
     const handleFileUpload = async (file: File) => {
         onClose();
         try {
-            const runData = await ConvertCsvToChartData(file);
-            setData(runData);
+            const convData = await ConvertCsvToChartData(file);
+            setData(convData);
+            console.log(data);
             setError(null); // 成功時はエラーをクリア
             onClose();      // モーダルを閉じる
         } catch (err: unknown) {

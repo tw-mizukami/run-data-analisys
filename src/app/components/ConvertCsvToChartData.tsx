@@ -25,10 +25,17 @@ const ConvertCsvToChartData = (file: File): Promise<runDataChartType[]> => {
             const data = result.data.map((row) => {
               const rowData = row as Record<string, any>;
               const date = rowData[Object.keys(rowData)[0]];
-              const speed = rowData[Object.keys(rowData)[37]] ? parseFloat(rowData[Object.keys(rowData)[37]]) : null;
-              const noInspRate = rowData[Object.keys(rowData)[38]] ? parseFloat(rowData[Object.keys(rowData)[38]]) : null;
+              const Data1 = parseFloat(rowData[Object.keys(rowData)[37]]);
+              const Data2 = parseFloat(rowData[Object.keys(rowData)[38]]);
+              const totalCount = parseInt(rowData[Object.keys(rowData)[30]]);
+              const Data3 =  totalCount * parseFloat(rowData[Object.keys(rowData)[31]]) / 100;
+              const Data4 =  totalCount * parseFloat(rowData[Object.keys(rowData)[32]]) / 100;
+              const Data5 = totalCount * parseFloat(rowData[Object.keys(rowData)[33]]) / 100;
+              const Data6 = totalCount * parseFloat(rowData[Object.keys(rowData)[34]]) / 100;
+              const Data7 = totalCount * parseFloat(rowData[Object.keys(rowData)[35]]) / 100;
+              const Data8 = totalCount * parseFloat(rowData[Object.keys(rowData)[36]]) / 100;
 
-              return date ? { date, Data1: speed, Data2: noInspRate } as runDataChartType : null;
+              return date ? { date, Data1, Data2, Data3, Data4, Data5, Data6, Data7, Data8} as runDataChartType : null;
             }).filter((item) => item !== null) as runDataChartType[];
 
             resolve(data);

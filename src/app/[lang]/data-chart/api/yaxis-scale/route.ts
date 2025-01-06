@@ -3,12 +3,13 @@ import { YAxisScale } from "../../context/yAxisScaleContext";
 
 let yAxisScale : YAxisScale = {
     Data1: { min: 0, max: 10000, isAuto: true, sliderMin: 0, sliderMax: 20000, sliderStep: 1000 },
-    Data2: { min: 0, max: 1.0, isAuto: true, sliderMin: 0, sliderMax: 10, sliderStep: 0.1 },
-    Data3: { min: 0, max: 1.0, isAuto: true, sliderMin: 0, sliderMax: 10, sliderStep: 0.1 },
-    Data4: { min: 0, max: 1.0, isAuto: true, sliderMin: 0, sliderMax: 10, sliderStep: 0.1 },
-    Data5: { min: 0, max: 1.0, isAuto: true, sliderMin: 0, sliderMax: 10, sliderStep: 0.1 },
-    Data6: { min: 0, max: 1.0, isAuto: true, sliderMin: 0, sliderMax: 10, sliderStep: 0.1 },
-    Data7: { min: 0, max: 1.0, isAuto: true, sliderMin: 0, sliderMax: 10, sliderStep: 0.1 },
+    Data2: { min: 0, max: 1.0, isAuto: true, sliderMin: 0, sliderMax: 5, sliderStep: 0.1 },
+    Data3: { min: 0, max: 1.0, isAuto: true, sliderMin: 0, sliderMax: 5, sliderStep: 0.1 },
+    Data4: { min: 0, max: 1.0, isAuto: true, sliderMin: 0, sliderMax: 5, sliderStep: 0.1 },
+    Data5: { min: 0, max: 1.0, isAuto: true, sliderMin: 0, sliderMax: 5, sliderStep: 0.1 },
+    Data6: { min: 0, max: 1.0, isAuto: true, sliderMin: 0, sliderMax: 5, sliderStep: 0.1 },
+    Data7: { min: 0, max: 1.0, isAuto: true, sliderMin: 0, sliderMax: 5, sliderStep: 0.1 },
+    Data8: { min: 0, max: 1.0, isAuto: true, sliderMin: 0, sliderMax: 5, sliderStep: 0.1 },
 };
 
 // GET メソッド

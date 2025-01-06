@@ -1,18 +1,12 @@
-//
-// 稼働データグラフ用メモリ
-//
-
+import { create } from "zustand";
 import { runDataChartType } from "../types/runDataChartType";
 
-export const runData: runDataChartType[] = [
-  {
-    date: null,
-    Data1: null,
-    Data2: null,
-    Data3: null,
-    Data4: null,
-    Data5: null,
-    Data6: null,
-    Data7: null,
-  },
-];
+type RunDataStore = {
+  data: runDataChartType[];
+  setData: (newData: runDataChartType[]) => void;
+};
+
+export const useRunDataStore = create<RunDataStore>((set) => ({
+  data: [],
+  setData: (newData) => set({ data: newData }),
+}));

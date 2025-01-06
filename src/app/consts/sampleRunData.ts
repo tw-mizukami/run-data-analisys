@@ -10,6 +10,7 @@ export const sampleRunData: runDataChartType[] = [
     Data5: 0.5,
     Data6: 0.3,
     Data7: 0.1,
+    Data8: 0.4,
   },
   {
     date: '10/02',
@@ -20,6 +21,7 @@ export const sampleRunData: runDataChartType[] = [
     Data5: 0.5,
     Data6: 0.3,
     Data7: 0.1,
+    Data8: 0.2,
   },
   {
     date: '10/03',
@@ -30,6 +32,7 @@ export const sampleRunData: runDataChartType[] = [
     Data5: 0.5,
     Data6: 0.3,
     Data7: 0.1,
+    Data8: 0.6,
   },
   {
     date: '10/04',
@@ -40,6 +43,7 @@ export const sampleRunData: runDataChartType[] = [
     Data5: 0.5,
     Data6: 0.3,
     Data7: 0.1,
+    Data8: 0.2,
   },
   {
     date: '10/05',
@@ -50,6 +54,7 @@ export const sampleRunData: runDataChartType[] = [
     Data5: 0.5,
     Data6: 0.3,
     Data7: 0.1,
+    Data8: 0.2,
   },
   {
     date: '10/06',
@@ -60,6 +65,7 @@ export const sampleRunData: runDataChartType[] = [
     Data5: 0.5,
     Data6: 0.3,
     Data7: 0.1,
+    Data8: 0.7,
   },
   {
     date: '10/07',
@@ -70,6 +76,7 @@ export const sampleRunData: runDataChartType[] = [
     Data5: 0.5,
     Data6: 0.3,
     Data7: 0.1,
+    Data8: 0.3,
   },
   {
     date: '10/08',
@@ -80,6 +87,7 @@ export const sampleRunData: runDataChartType[] = [
     Data5: 0.5,
     Data6: 0.3,
     Data7: 0.1,
+    Data8: 0.9,
   },
   {
     date: '10/09',
@@ -90,6 +98,7 @@ export const sampleRunData: runDataChartType[] = [
     Data5: 0.5,
     Data6: 0.3,
     Data7: 0.1,
+    Data8: 0.8,
   },
   {
     date: '10/10',
@@ -100,6 +109,7 @@ export const sampleRunData: runDataChartType[] = [
     Data5: 0.5,
     Data6: 0.3,
     Data7: 0.1,
+    Data8: 0.2,
   },
   {
     date: '10/11',
@@ -110,6 +120,7 @@ export const sampleRunData: runDataChartType[] = [
     Data5: 0.5,
     Data6: 0.3,
     Data7: 0.1,
+    Data8: 0.7,
   },
   {
     date: '10/12',
@@ -120,6 +131,7 @@ export const sampleRunData: runDataChartType[] = [
     Data5: 0.5,
     Data6: 0.3,
     Data7: 0.1,
+    Data8: 0.4,
   },
   {
     date: '10/13',
@@ -130,6 +142,7 @@ export const sampleRunData: runDataChartType[] = [
     Data5: 0.5,
     Data6: 0.3,
     Data7: 0.1,
+    Data8: 0.6,
   },
   {
     date: '10/14',
@@ -140,6 +153,7 @@ export const sampleRunData: runDataChartType[] = [
     Data5: 0.5,
     Data6: 0.3,
     Data7: 0.1,
+    Data8: 0.5,
   },
   {
     date: '10/15',
@@ -150,6 +164,7 @@ export const sampleRunData: runDataChartType[] = [
     Data5: 0.5,
     Data6: 0.3,
     Data7: 0.1,
+    Data8: 0.5,
   },
   {
     date: '10/16',
@@ -160,6 +175,7 @@ export const sampleRunData: runDataChartType[] = [
     Data5: 0.5,
     Data6: 0.3,
     Data7: 0.1,
+    Data8: 0.5,
   },
   {
     date: '10/17',
@@ -170,6 +186,7 @@ export const sampleRunData: runDataChartType[] = [
     Data5: 0.5,
     Data6: 0.3,
     Data7: 0.1,
+    Data8: 0.8,
   },
   {
     date: '10/18',
@@ -180,6 +197,7 @@ export const sampleRunData: runDataChartType[] = [
     Data5: 0.5,
     Data6: 0.3,
     Data7: 0.1,
+    Data8: 0.6,
   },
   {
     date: '10/19',
@@ -190,5 +208,6 @@ export const sampleRunData: runDataChartType[] = [
     Data5: 0.5,
     Data6: 0.3,
     Data7: 0.1,
+    Data8: 0.4,
   },
 ];

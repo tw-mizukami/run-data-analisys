@@ -16,7 +16,7 @@ const ToggleLineChartButton = () => {
       <div className="absolute -top-3 left-4 bg-black px-2 text-white-500 font-semibold">
         {dictionary.SelectData}
       </div>
-      <div className="flex flex-col space-y-8 mt-4">
+      <div className="flex flex-col space-y-4 mt-4">
         {Object.keys(states).map((key) => (
           <label
             key={key}

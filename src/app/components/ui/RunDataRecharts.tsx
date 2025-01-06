@@ -195,6 +195,20 @@ function RunDataChart({ data }: RechartsGraphProps) {
               }}
           />
         )}
+        {visibleLines.Data8 && (
+          <Line
+              yAxisId="right"
+              type="monotone"
+              dataKey="Data8"
+              name={dictionary.data8}
+              stroke="#b266ff"
+              strokeWidth={2}
+              unit="%"
+              activeDot={{
+                cursor: "pointer",
+              }}
+          />
+        )}
         <Legend verticalAlign="top" height={30} iconSize={20} iconType="plainline" />
         <Tooltip
           formatter={(value: number) => formatNumber(value)}

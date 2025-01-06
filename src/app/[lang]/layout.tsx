@@ -11,8 +11,8 @@ export default function RootLayout({
   return (
     <>
       <div className="text-white">
+        {children}
       </div>
-      {children}
     </>
   );
 }

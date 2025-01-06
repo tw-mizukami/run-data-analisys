@@ -7,4 +7,5 @@ export type runDataChartType = {
   Data5: number | null;
   Data6: number | null;
   Data7: number | null;
+  Data8: number | null;
 };

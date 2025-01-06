@@ -9,6 +9,7 @@ let visibleLinesState : VisibleLinesState = {
   Data5: false,
   Data6: false,
   Data7: false,
+  Data8: false,
 };
 
 // GET メソッド

@@ -10,6 +10,7 @@ export type VisibleLinesState = {
   Data5: boolean;
   Data6: boolean;
   Data7: boolean;
+  Data8: boolean;
 };
 
 const initialState: VisibleLinesState = {
@@ -20,6 +21,7 @@ const initialState: VisibleLinesState = {
   Data5: true,
   Data6: true,
   Data7: true,
+  Data8: true,
 };
 
 const VisibleLinesContext = createContext<{
