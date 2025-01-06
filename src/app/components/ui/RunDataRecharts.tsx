@@ -45,9 +45,7 @@ function RunDataChart({ data }: RechartsGraphProps) {
   }, []);
   
   useEffect(() => {
-    console.log("Updated yAxisScale:", yAxisScale);
-  }, [yAxisScale]); // yAxisScale に依存
-  
+  }, [yAxisScale]);  
   
   if (!isClient) {
     return <div>Loading...</div>;
@@ -85,8 +83,8 @@ function RunDataChart({ data }: RechartsGraphProps) {
         <YAxis
           yAxisId="left"
           domain={[
-            yAxisScale.Data1.min !== undefined ? yAxisScale.Data1.min : "auto",
-            yAxisScale.Data1.max !== undefined ? yAxisScale.Data1.max : "auto",
+            yAxisScale.Data1.isAuto ? "auto" : yAxisScale.Data1.min,
+            yAxisScale.Data1.isAuto ? "auto" : yAxisScale.Data1.max,
           ]}
           allowDataOverflow
           tickCount={10}
@@ -96,17 +94,11 @@ function RunDataChart({ data }: RechartsGraphProps) {
           yAxisId="right"
           orientation="right"
           domain={[
-            yAxisScale.Data2.min !== undefined ? yAxisScale.Data2.min : "auto",
-            yAxisScale.Data2.max !== undefined ? yAxisScale.Data2.max : "auto",
+            yAxisScale.Data2.isAuto ? "auto" : yAxisScale.Data2.min,
+            yAxisScale.Data2.isAuto ? "auto" : yAxisScale.Data2.max,
           ]}
           tickCount={10}
         />
-        {/* <YAxis
-          yAxisId="custom"
-          orientation="right"
-          domain={["auto", "auto"]}
-          tickCount={10}
-        /> */}
 
         {visibleLines.Data1 && (
           <Line

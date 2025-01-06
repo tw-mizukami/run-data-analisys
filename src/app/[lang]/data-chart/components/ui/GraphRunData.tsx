@@ -44,11 +44,11 @@ function GraphRunData({ params, data }: GraphRunDataProps) {
     
     <YAxisScaleProvider lang={lang}>
       <VisibleLinesProvider lang={lang}>
+
         <div className="flex flex-row space-x-4 mt-4 mb-4 ml-4">
-      
-          <div className= "flex flex-col space-x-4 mt-4 mb-4">
+          
+          <div className="flex flex-col space-x-4 mt-4 mb-4">
             <RunDataChart data={data} />
-            
             <GraphDataSelector />
           </div>
          
@@ -59,10 +59,10 @@ function GraphRunData({ params, data }: GraphRunDataProps) {
             <div>
               <YAxisScaleBar />
             </div>
-            {/* Auto Scale Buttonも欲しい */}
           </div>
 
         </div>
+
       </VisibleLinesProvider>
     </YAxisScaleProvider>
   );
