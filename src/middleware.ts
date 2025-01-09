@@ -26,6 +26,11 @@ export function middleware(request: NextRequest)
 {
     const pathname = request.nextUrl.pathname;
 
+    // 特定のルートを除外 (APIルートなど)
+    if (pathname.startsWith("/api")) {
+        return NextResponse.next(); // APIルートはそのまま通過
+    }
+    
     if (["/favicon.ico"].includes(pathname)) return;
 
     const haslocale = i18n.locales.some(

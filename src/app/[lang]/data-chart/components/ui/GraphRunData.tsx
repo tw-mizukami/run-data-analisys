@@ -11,6 +11,7 @@ import YAxisScaleBar from '@/app/components/ui/YAxisScaleBar';
 import { YAxisScaleProvider } from '../../context/yAxisScaleContext';
 import { useRunDataStore } from '@/app/data/rechartsRunData'
 import { sampleRunData } from '@/app/consts/sampleRunData';
+import { GetToChartData } from '@/app/components/ConvertCsvToChartData';
 
 interface GraphRunDataProps {
   params: Promise<{ lang: Locale }>;
@@ -36,17 +37,40 @@ function GraphRunData({ params }: GraphRunDataProps) {
     pointerEvents: "none",
   };
 
+  // PCからデータ受信
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("/api/receiveClientData");
+        if (response.ok) {
+
+          const jsonResponse = await response.json(); // JSONデータをパース
+          const csvText = jsonResponse.data as string; // JSON内の"data"フィールドを取得
+          
+          const convData = await GetToChartData(csvText);
+          setData(convData);
+        }
+      } catch (error) {
+        console.error("Error fetching machine info:", error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+  // 波形データの更新
   useEffect(() => {
     console.log(data);
   }, [data]);
 
+  // 言語切替処理
   useEffect(() => {
     const fetchDictionary = async () => {
       try {
-        const resolvedParams = await params; // `params` を解決
+        const resolvedParams = await params;
         const { lang } = resolvedParams;
-        setLang(lang); // `lang` をローカル状態に保存
-        const result = await getDictionary(lang); // 辞書を取得
+        setLang(lang);
+        const result = await getDictionary(lang);
         setDictionary(result);
       } catch (error) {
         console.error("Failed to fetch dictionary:", error);
@@ -56,8 +80,9 @@ function GraphRunData({ params }: GraphRunDataProps) {
     fetchDictionary();
   }, [params]);
 
+  // ローディング中の表示
   if (!dictionary || !lang) {
-    return <div>Loading...</div>; // ローディング中の表示
+    return <div>Loading...</div>; 
   }
 
   return (
@@ -73,7 +98,7 @@ function GraphRunData({ params }: GraphRunDataProps) {
             ) : (
               <div className='relative'>
                 <div style={overlayStyle}>sample</div>
-                <RunDataChart data={sampleRunData} />
+                  <RunDataChart data={sampleRunData} />
               </div>
             )}
             <GraphDataSelector />
@@ -87,7 +112,6 @@ function GraphRunData({ params }: GraphRunDataProps) {
               <YAxisScaleBar />
             </div>
           </div>
-
         </div>
 
       </VisibleLinesProvider>
