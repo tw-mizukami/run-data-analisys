@@ -2,7 +2,9 @@
 
 "use client";
 
-import { useVisibleLines } from "@/app/[lang]/data-chart/context/visibleLinesContext";
+import GraphCustomLine from "@/app/[lang]/data-chart/components/ui/GraphCustomLine";
+import { GraphLineConfig } from "@/app/[lang]/data-chart/Config/GraphLineConfig";
+import { useVisibleLines, VisibleLinesState } from "@/app/[lang]/data-chart/context/visibleLinesContext";
 import { useYAxisScale } from "@/app/[lang]/data-chart/context/yAxisScaleContext";
 import { useI18n } from "@/app/context/i18nContext";
 import { runDataChartType } from "@/app/types/runDataChartType";
@@ -18,6 +20,7 @@ import {
 } from "recharts";
 
 interface RechartsGraphProps {
+  title: string;
   data: runDataChartType[];
 }
 
@@ -31,7 +34,7 @@ const divStyle = {
   border: "solid 2px blue",
 };
 
-function RunDataChart({ data }: RechartsGraphProps) {
+function RunDataChart({ title, data }: RechartsGraphProps) {
   // カンマ区切りのフォーマット関数
   const formatNumber = (value: number) => value.toLocaleString();
   const [isClient, setIsClient] = useState(false);
@@ -47,6 +50,7 @@ function RunDataChart({ data }: RechartsGraphProps) {
   useEffect(() => {
   }, [yAxisScale]);  
   
+  
   if (!isClient) {
     return <div>Loading...</div>;
   }
@@ -58,7 +62,7 @@ function RunDataChart({ data }: RechartsGraphProps) {
   return (
     <div>
       <h2 className="text-2xl font-bold text-white text-center bg-gradient-to-r from-blue-800 to-blue-600 py-4 px-6 rounded-lg shadow-lg">
-        {dictionary.grahTitle}
+        {title}
       </h2> 
       <LineChart
         width={800}
@@ -99,15 +103,53 @@ function RunDataChart({ data }: RechartsGraphProps) {
           ]}
           tickCount={10}
         />
-
-        {visibleLines.Data1 && (
+  
+    {/* グラフが表示されない */}
+    {/* {Object.entries(GraphLineConfig).map(([key, { yAxis, color, unit }]) =>
+      visibleLines[key] ? (
+        // Lineにすると表示される
+        // <Line
+        <GraphCustomLine
+          key={key}
+          yAxisId={yAxis}
+          dataKey={key}
+          name={dictionary[key]}
+          stroke={color}
+          unit={unit}
+        />
+      ) : null
+    )} */}
+        
+    {Object.entries(GraphLineConfig).map(([key, { yAxis, color, unit }]) =>
+      visibleLines[key] ? (
+        <Line
+          key={key} 
+          yAxisId={yAxis}
+          type="monotone"
+          dataKey={key}
+          name={dictionary[key]}
+          stroke={color}
+          strokeWidth={2}
+          unit={unit}
+          activeDot={{
+            cursor: "pointer",
+          }}
+        />
+      ) : null
+    )}
+        
+     {/* {visibleLines.Data1 && (
           <Line
-            yAxisId="left"
+            yAxisId={"left"}
             type="monotone"
             dataKey="Data1"
             name={dictionary.data1}
             stroke="#3ba2f6"
+            strokeWidth={2}
             unit="pcs/min"
+            activeDot={{
+              cursor: "pointer",
+            }}
           />
         )}
 
@@ -208,7 +250,7 @@ function RunDataChart({ data }: RechartsGraphProps) {
                 cursor: "pointer",
               }}
           />
-        )}
+        )} */}
         <Legend verticalAlign="top" height={30} iconSize={20} iconType="plainline" />
         <Tooltip
           formatter={(value: number) => formatNumber(value)}

@@ -11,6 +11,8 @@ export type VisibleLinesState = {
   Data6: boolean;
   Data7: boolean;
   Data8: boolean;
+} & {
+  [key: string]: boolean;
 };
 
 const initialState: VisibleLinesState = {
