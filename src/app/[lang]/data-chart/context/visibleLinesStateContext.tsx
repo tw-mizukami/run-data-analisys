@@ -1,19 +1,15 @@
 "use client";
 
+import { chartLinesDataKey } from "@/app/types/chartLinesDatakeys";
 import { createContext, useContext, useEffect, useState } from "react";
 
-export type VisibleLinesState = {
-  Data1: boolean;
-  Data2: boolean;
-  Data3: boolean;
-  Data4: boolean;
-  Data5: boolean;
-  Data6: boolean;
-  Data7: boolean;
-  Data8: boolean;
-} & {
-  [key: string]: boolean;
-};
+export type VisibleLinesStateConfig = {
+  Data1: boolean; Data2: boolean; Data3: boolean;
+  Data4: boolean; Data5: boolean; Data6: boolean;
+  Data7: boolean; Data8: boolean;  
+}
+  
+export type VisibleLinesState = Record<chartLinesDataKey, boolean>;
 
 const initialState: VisibleLinesState = {
   Data1: true,
@@ -26,7 +22,7 @@ const initialState: VisibleLinesState = {
   Data8: true,
 };
 
-const VisibleLinesContext = createContext<{
+const VisibleLinesStateContext = createContext<{
   states: VisibleLinesState;
   setStates: (key: keyof VisibleLinesState, value: boolean) => Promise<void>;
 } | null>(null);
@@ -76,14 +72,14 @@ export const VisibleLinesProvider = ({
   };
 
   return (
-    <VisibleLinesContext.Provider value={{ states, setStates }}>
+    <VisibleLinesStateContext.Provider value={{ states, setStates }}>
       {children}
-    </VisibleLinesContext.Provider>
+    </VisibleLinesStateContext.Provider>
   );
 };
 
-export const useVisibleLines = () => {
-  const context = useContext(VisibleLinesContext);
+export const useVisibleLinesState = () => {
+  const context = useContext(VisibleLinesStateContext);
   if (!context) {
     throw new Error("useVisibleLines must be used within a VisibleLinesProvider");
   }

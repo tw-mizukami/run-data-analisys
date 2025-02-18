@@ -1,17 +1,13 @@
 "use client"
 
+import { chartLinesDataKey } from "@/app/types/chartLinesDatakeys";
 import { createContext, useContext, useEffect, useState } from "react";
 
-export type YAxisScale = {
-    Data1: { min: number; max: number; isAuto: boolean; sliderMin: number; sliderMax: number; sliderStep: number }
-    Data2: { min: number; max: number; isAuto: boolean; sliderMin: number; sliderMax: number; sliderStep: number }
-    Data3: { min: number; max: number; isAuto: boolean; sliderMin: number; sliderMax: number; sliderStep: number }
-    Data4: { min: number; max: number; isAuto: boolean; sliderMin: number; sliderMax: number; sliderStep: number }
-    Data5: { min: number; max: number; isAuto: boolean; sliderMin: number; sliderMax: number; sliderStep: number }
-    Data6: { min: number; max: number; isAuto: boolean; sliderMin: number; sliderMax: number; sliderStep: number }
-    Data7: { min: number; max: number; isAuto: boolean; sliderMin: number; sliderMax: number; sliderStep: number }
-    Data8: { min: number; max: number; isAuto: boolean; sliderMin: number; sliderMax: number; sliderStep: number }
-};
+export type YAxisScaleConfig = {
+    min: number; max: number; isAuto: boolean; sliderMin: number; sliderMax: number; sliderStep: number
+ };
+
+export type YAxisScale = Record<chartLinesDataKey, YAxisScaleConfig>;
 
 const initialState: YAxisScale = {
     Data1: { min: 0, max: 10000, isAuto: true, sliderMin: 0, sliderMax: 20000, sliderStep: 1000 },

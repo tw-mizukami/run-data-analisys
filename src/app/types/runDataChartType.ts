@@ -1,11 +1,12 @@
+import { chartLinesDataKey } from "./chartLinesDatakeys";
+
+export type runDataConfig = {
+  data :number | null;
+};
+
+export type runData = Record<chartLinesDataKey, runDataConfig>;
+
 export type runDataChartType = {
   date: string | null;
-  Data1: number | null;
-  Data2: number | null;
-  Data3: number | null;
-  Data4: number | null;
-  Data5: number | null;
-  Data6: number | null;
-  Data7: number | null;
-  Data8: number | null;
+  runData: runData;
 };

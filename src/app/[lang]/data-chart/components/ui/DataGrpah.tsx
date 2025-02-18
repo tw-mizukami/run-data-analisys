@@ -2,12 +2,12 @@
 
 import { Locale } from '@/i18n-config';
 import { YAxisScaleProvider } from '../../context/yAxisScaleContext';
-import { VisibleLinesProvider } from "../../context/visibleLinesContext";
+import { VisibleLinesProvider } from "../../context/visibleLinesStateContext";
 import GraphRunData from './GraphRunData';
-import { GraphDataSelector } from "@/app/components/ui/GraphDataSelector";
-import ToggleLineChartButton from "@/app/components/ui/ToggleLineChartButton";
-import YAxisScaleBar from '@/app/components/ui/YAxisScaleBar';
+import { GraphDataSelector } from "@/app/[lang]/data-chart/components/ui/GraphDataSelector";
+import ToggleLineChartButton from "@/app/[lang]/data-chart/components/ui/ToggleLineChartButton";
 import { useDictionary } from '../../hooks/useDictionary';
+import YAxisScaleBar from './YAxisScaleBar';
 
 interface GraphRunDataProps {
     params: Promise<{ lang: Locale }>;

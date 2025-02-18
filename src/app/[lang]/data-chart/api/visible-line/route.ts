@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { VisibleLinesState } from "../../context/visibleLinesContext";
+import { VisibleLinesState } from "../../context/visibleLinesStateContext";
 
 let visibleLinesState : VisibleLinesState = {
   Data1: true,

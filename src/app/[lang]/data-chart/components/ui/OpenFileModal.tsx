@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import CsvFileUploader from "./CsvFileUploader";
 import { useRunDataStore } from "@/app/data/rechartsRunData";
-import { ConvertCsvToChartData } from "../ConvertCsvToChartData";
+import { ConvertCsvToChartData } from "../../../../components/ConvertCsvToChartData";
 
 export const OpenFileModal = ({ onClose }: { onClose: () => void }) => {
     const[error, setError] = useState<string | null>(null); 

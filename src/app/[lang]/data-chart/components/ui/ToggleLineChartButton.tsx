@@ -1,10 +1,10 @@
 'use client';
 
-import { useVisibleLines, VisibleLinesState } from "@/app/[lang]/data-chart/context/visibleLinesContext";
+import { useVisibleLinesState, VisibleLinesState } from "@/app/[lang]/data-chart/context/visibleLinesStateContext";
 import { useI18n } from "@/app/context/i18nContext";
 
 const ToggleLineChartButton = () => {
-  const { states, setStates } = useVisibleLines();
+  const { states, setStates } = useVisibleLinesState();
   const { dictionary } = useI18n();
   
   const handleCheckboxChange = (key: keyof VisibleLinesState, checked: boolean) => {

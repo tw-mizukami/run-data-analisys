@@ -3,7 +3,7 @@
 'use client';
 
 import React, { useState } from "react";
-import Button from "@/app/components/ui/Button";
+import Button from "@/app/[lang]/data-chart/components/ui/Button";
 import { OpenFileModal } from "./OpenFileModal";
 
 export const GraphDataSelector = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Locale } from '@/i18n-config';
 import { I18nProvider } from '@/app/context/i18nContext';
-import LanguageSwitchButton from '@/app/components/ui/LanguageSwitchButton';
+import LanguageSwitchButton from '@/app/[lang]/data-chart/components/ui/LanguageSwitchButton';
 import DataGraph from './components/ui/DataGrpah';
 
 interface Props {

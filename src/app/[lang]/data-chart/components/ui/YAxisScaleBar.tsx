@@ -46,7 +46,7 @@ const YAxisScaleBar = () => {
               onChange={(event, value) => handleSliderValueChange('Data1', value as [number, number])}
               valueLabelDisplay="auto"
               sx={{ width: 200 }}
-              />
+            />
           )}
           <Button label="Auto" size="sm" assign="primary" onClick={() => handleSliderValueChange_Auto('Data1', true)} />
         </div>
@@ -66,7 +66,7 @@ const YAxisScaleBar = () => {
               onChange={(event, value) => handleSliderValueChange('Data2', value as [number, number])}
               valueLabelDisplay="auto"
               sx={{ width: 200 }}
-              />
+            />
           )}
           <Button label="Auto" size="sm" assign="primary" onClick={() => handleSliderValueChange_Auto('Data2', true)} />
         </div>
